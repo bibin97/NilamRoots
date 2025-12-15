@@ -131,7 +131,7 @@ const ProductDetails = () => {
                         key={selectedProduct._id} // Re-animate on change
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="rounded-3xl overflow-hidden bg-stone-50 dark:bg-stone-800 p-8 flex items-center justify-center relative h-[600px]"
+                        className="rounded-3xl overflow-hidden bg-stone-50 dark:bg-stone-800 p-8 flex items-center justify-center relative h-[400px] md:h-[600px]"
                     >
                         <img
                             src={selectedProduct.images[0] || "/assets/nilam_roots_500ml_v2.jpg"}
@@ -146,6 +146,7 @@ const ProductDetails = () => {
                         animate={{ opacity: 1, x: 0 }}
                         className="space-y-8"
                     >
+                        {/* ... (existing code for title/price etc remains same until buttons) ... */}
                         <div>
                             <span className="text-gold-600 font-semibold tracking-widest uppercase text-sm">Best Seller</span>
                             <h1 className="text-4xl font-serif font-bold text-green-900 dark:text-white mt-2">{selectedProduct.name}</h1>
@@ -205,9 +206,9 @@ const ProductDetails = () => {
                         </div>
 
                         <div className="pt-8 border-t border-gray-100">
-                            <div className="flex items-center space-x-6">
+                            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:space-x-6">
                                 {/* Quantity */}
-                                <div className="flex items-center border border-gray-300 dark:border-stone-600 rounded-full text-gray-900 dark:text-white">
+                                <div className="flex items-center justify-center border border-gray-300 dark:border-stone-600 rounded-full text-gray-900 dark:text-white w-full sm:w-auto">
                                     <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-3 hover:text-gold-600"><Minus size={18} /></button>
                                     <span className="w-12 text-center font-medium">{quantity}</span>
                                     <button onClick={() => setQuantity(quantity + 1)} className="p-3 hover:text-gold-600"><Plus size={18} /></button>

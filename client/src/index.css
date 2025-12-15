@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-gold-400: #FACC15;
+    --color-gold-500: #EAB308;
+    --color-gold-600: #CA8A04;
+
+    --color-green-800: #166534;
+    --color-green-900: #14532D;
+
+    --font-sans: Inter, sans-serif;
+    --font-serif: Merriweather, serif;
+}
+
+body {
+    @apply bg-stone-50 dark:bg-stone-900 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+}

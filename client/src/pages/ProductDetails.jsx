@@ -148,15 +148,15 @@ const ProductDetails = () => {
                     >
                         {/* ... (existing code for title/price etc remains same until buttons) ... */}
                         <div>
-                            <span className="text-gold-600 font-semibold tracking-widest uppercase text-sm">Best Seller</span>
-                            <h1 className="text-4xl font-serif font-bold text-green-900 dark:text-white mt-2">{selectedProduct.name}</h1>
-                            <div className="flex items-center space-x-2 mt-4">
+                            <span className="text-gold-600 font-semibold tracking-widest uppercase text-xs md:text-sm">Best Seller</span>
+                            <h1 className="text-3xl md:text-4xl font-serif font-bold text-green-900 dark:text-white mt-1 md:mt-2">{selectedProduct.name}</h1>
+                            <div className="flex items-center space-x-2 mt-2 md:mt-4">
                                 <div className="flex text-gold-500">
                                     {[...Array(5)].map((_, i) => (
-                                        <Star key={i} size={20} fill={i < Math.floor(selectedProduct.rating) ? "currentColor" : "none"} />
+                                        <Star key={i} size={18} fill={i < Math.floor(selectedProduct.rating) ? "currentColor" : "none"} />
                                     ))}
                                 </div>
-                                <span className="text-gray-500 dark:text-gray-400">({selectedProduct.reviewsCount} reviews)</span>
+                                <span className="text-sm text-gray-500 dark:text-gray-400">({selectedProduct.reviewsCount} reviews)</span>
                             </div>
                         </div>
 
@@ -165,22 +165,22 @@ const ProductDetails = () => {
                         {/* Product Variants (Now Distinct Products) */}
                         <div className="space-y-3">
                             <span className="text-gray-700 font-medium">Available Varieties:</span>
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-2 gap-2 md:gap-3">
                                 {products.map((prod) => (
                                     <button
                                         key={prod._id}
                                         onClick={() => handleProductChange(prod)}
-                                        className={`p-3 rounded-xl border text-left transition-all flex items-center space-x-3 ${selectedProduct._id === prod._id
+                                        className={`p-2 md:p-3 rounded-xl border text-left transition-all flex items-center space-x-2 md:space-x-3 ${selectedProduct._id === prod._id
                                             ? 'border-green-900 bg-green-50 ring-1 ring-green-900 dark:bg-green-900/20 dark:border-green-500 dark:ring-green-500'
                                             : 'border-gray-200 dark:border-stone-700 hover:border-gold-400 hover:bg-white dark:hover:bg-stone-800'
                                             }`}
                                     >
-                                        <img src={prod.images[0]} alt="" className="w-10 h-10 object-contain rounded-full bg-stone-100" />
+                                        <img src={prod.images[0]} alt="" className="w-8 h-8 md:w-10 md:h-10 object-contain rounded-full bg-stone-100" />
                                         <div className="flex-1 min-w-0">
-                                            <p className={`text-sm font-semibold truncate ${selectedProduct._id === prod._id ? 'text-green-900 dark:text-white' : 'text-gray-700 dark:text-gray-400'}`}>
+                                            <p className={`text-xs md:text-sm font-semibold truncate ${selectedProduct._id === prod._id ? 'text-green-900 dark:text-white' : 'text-gray-700 dark:text-gray-400'}`}>
                                                 {prod.name.split('(')[0]}
                                             </p>
-                                            <p className="text-xs text-gray-500">
+                                            <p className="text-[10px] md:text-xs text-gray-500">
                                                 {prod.name.match(/\((.*?)\)/) ? prod.name.match(/\((.*?)\)/)[1] : 'Standard'}
                                             </p>
                                         </div>

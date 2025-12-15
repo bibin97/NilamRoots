@@ -128,7 +128,7 @@ const Checkout = () => {
     const initiatePayment = () => {
         // Validate Address First
         if (!formData.name || !formData.phone || !formData.pincode || !formData.address || !formData.city || !formData.state) {
-            alert("Please fill in all address details.");
+            toast.error("Please fill in all address details.");
             return;
         }
 

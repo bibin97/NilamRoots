@@ -1,6 +1,8 @@
 
 import React, { createContext, useContext, useState } from 'react';
 
+import toast from 'react-hot-toast';
+
 const CartContext = createContext();
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -36,7 +38,7 @@ export const CartProvider = ({ children }) => {
             }
             return [...prevCart, { ...product, quantity }];
         });
-        alert("Added to cart!"); // Simple feedback
+        toast.success("Added to cart!"); // Better feedback
     };
 
     const removeFromCart = (productId) => {

@@ -101,15 +101,48 @@ const AccountSettings = () => {
         }
     };
 
-    const handleDeleteAddress = async (id) => {
-        if (window.confirm("Are you sure you want to delete this address?")) {
-            try {
-                await axios.delete(`http://localhost:5000/api/addresses/${id}`);
-                toast.success("Address Deleted");
-                fetchAddresses();
-            } catch (error) {
-                toast.error("Failed to delete address");
+    const handleDeleteAddress = (id) => {
+        toast((t) => (
+            <div className="flex flex-col gap-3 min-w-[250px]">
+                <p className="font-semibold text-gray-800">Delete this address?</p>
+                <p className="text-sm text-gray-500">This action cannot be undone.</p>
+                <div className="flex gap-2 mt-1">
+                    <button
+                        onClick={() => {
+                            confirmDelete(id);
+                            toast.dismiss(t.id);
+                        }}
+                        className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-600 transition-colors flex-1"
+                    >
+                        Delete
+                    </button>
+                    <button
+                        onClick={() => toast.dismiss(t.id)}
+                        className="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors flex-1"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        ), {
+            duration: 6000,
+            position: 'top-center',
+            style: {
+                background: '#fff',
+                padding: '1rem',
+                borderRadius: '1rem',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
             }
+        });
+    };
+
+    const confirmDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:5000/api/addresses/${id}`);
+            toast.success("Address Deleted");
+            fetchAddresses();
+        } catch (error) {
+            toast.error("Failed to delete address");
         }
     };
 

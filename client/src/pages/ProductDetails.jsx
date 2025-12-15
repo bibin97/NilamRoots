@@ -131,7 +131,7 @@ const ProductDetails = () => {
                         key={selectedProduct._id} // Re-animate on change
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="rounded-3xl overflow-hidden bg-stone-50 dark:bg-stone-800 p-8 flex items-center justify-center relative h-[400px] md:h-[600px]"
+                        className="rounded-3xl overflow-hidden bg-stone-50 dark:bg-stone-800 p-4 md:p-8 flex items-center justify-center relative h-[350px] md:h-[600px]"
                     >
                         <img
                             src={selectedProduct.images[0] || "/assets/nilam_roots_500ml_v2.jpg"}

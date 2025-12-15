@@ -136,7 +136,7 @@ const ProductDetails = () => {
                         <img
                             src={selectedProduct.images[0] || "/assets/nilam_roots_500ml_v2.jpg"}
                             alt={selectedProduct.name}
-                            className="h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                            className="w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                         />
                     </Motion.div>
 

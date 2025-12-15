@@ -1,0 +1,17 @@
+{
+    "name": "nilam-roots",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+        "client",
+        "server",
+        "admin_dashboard"
+    ],
+    "scripts": {
+        "install-all": "npm install",
+        "build": "npm run build --workspace=client"
+    },
+    "engines": {
+        "node": "18.x"
+    }
+}
